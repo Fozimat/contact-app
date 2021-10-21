@@ -16,12 +16,17 @@
           <a class="btn btn-info badge" href="/contact/edit/<%= contact.nama %>"
             >Edit</a
           >
-          <a
-            class="btn btn-danger badge"
-            onclick="return confirm('Apakah anda yakin?')"
-            href="/contact/delete/<%= contact.nama %>"
-            >Hapus</a
-          >
+
+          <form action="/contact?_method=DELETE" method="POST" class="d-inline">
+            <input type="hidden" name="nama" value="<%= contact.nama %>" />
+            <button
+              onclick="return confirm('Apakah anda yakin?')"
+              type="submit"
+              class="btn btn-danger badge"
+            >
+              Hapus
+            </button>
+          </form>
           <a href="/contact" class="card-link d-block">Kembali</a>
         </div>
       </div>
